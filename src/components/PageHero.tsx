@@ -1,3 +1,5 @@
+'use client'
+import { motion } from 'framer-motion'
 import { AnimatedSection } from './AnimatedSection'
 
 interface Props {
@@ -20,7 +22,13 @@ export function PageHero({ eyebrow, title, titleHtml = false, subtitle }: Props)
         ) : (
           <h1 className="font-heading text-4xl md:text-5xl text-forest leading-tight">{title}</h1>
         )}
-        <div className="w-12 h-px bg-sand mt-5 mb-5" />
+        <motion.div
+          className="w-12 h-px bg-sand mt-5 mb-5 origin-left"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+        />
         {subtitle && (
           <p className="text-sm font-light text-charcoal/70 leading-relaxed max-w-lg">{subtitle}</p>
         )}
