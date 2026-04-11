@@ -4,6 +4,7 @@ import { AnimatedSection } from '@/components/AnimatedSection'
 import { AnimatedWords } from '@/components/AnimatedWords'
 import { ItemCard } from '@/components/ItemCard'
 import { PackageCard } from '@/components/PackageCard'
+import { HeroParallax } from '@/components/HeroParallax'
 
 const previewItems = [
   { name: 'Wedding Bar', description: 'Our signature statement piece — the perfect centrepiece for any reception.', imageSrc: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80', imageAlt: 'Wedding bar', category: 'bar', enquireParam: 'bar', featured: false },
@@ -29,40 +30,40 @@ export default function HomePage() {
   return (
     <main>
       {/* ─── HERO ─────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-forest via-[#2d3e35] to-[#1e2b24] overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_#7a9b6e,_transparent_70%)]" />
+      <HeroParallax>
+        <div className="flex items-center min-h-screen px-6 md:px-16 py-32">
+          <div className="max-w-3xl">
+            <AnimatedSection delay={0.1}>
+              <p className="text-sand text-[10px] tracking-[0.4em] uppercase mb-6">Auckland Wedding Hire</p>
+            </AnimatedSection>
 
-        <div className="relative z-10 px-6 md:px-16 py-32 max-w-3xl">
-          <AnimatedSection delay={0.1}>
-            <p className="text-sand text-[10px] tracking-[0.4em] uppercase mb-6">Auckland Wedding Hire</p>
-          </AnimatedSection>
+            <AnimatedWords
+              text="Beautiful details for your perfect day"
+              as="h1"
+              className="font-heading text-5xl md:text-7xl text-ivory font-light leading-[1.05]"
+            />
 
-          <AnimatedWords
-            text="Beautiful details for your perfect day"
-            as="h1"
-            className="font-heading text-5xl md:text-7xl text-ivory font-light leading-[1.05]"
-          />
+            <AnimatedSection delay={0.9}>
+              <p className="text-sm font-light text-ivory/60 mt-6 max-w-md leading-relaxed">
+                Statement pieces, elegant tableware, and everything in between — hire what you love for your special day.
+              </p>
+            </AnimatedSection>
 
-          <AnimatedSection delay={0.9}>
-            <p className="text-sm font-light text-ivory/60 mt-6 max-w-md leading-relaxed">
-              Statement pieces, elegant tableware, and everything in between — hire what you love for your special day.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection delay={1.1}>
-            <div className="flex flex-wrap gap-4 mt-10">
-              <Link href="/hire"
-                className="text-[10px] tracking-widest uppercase px-7 py-4 bg-sand text-charcoal rounded-sm relative overflow-hidden btn-shimmer hover:scale-[1.02] transition-transform duration-200 font-medium">
-                View Hire Items
-              </Link>
-              <Link href="/contact"
-                className="text-[10px] tracking-widest uppercase px-7 py-4 border border-ivory/30 text-ivory rounded-sm hover:bg-ivory/10 transition-colors duration-200">
-                Get a Quote
-              </Link>
-            </div>
-          </AnimatedSection>
+            <AnimatedSection delay={1.1}>
+              <div className="flex flex-wrap gap-4 mt-10">
+                <Link href="/hire"
+                  className="text-[10px] tracking-widest uppercase px-7 py-4 bg-sand text-charcoal rounded-sm relative overflow-hidden btn-shimmer hover:scale-[1.02] transition-transform duration-200 font-medium">
+                  View Hire Items
+                </Link>
+                <Link href="/contact"
+                  className="text-[10px] tracking-widest uppercase px-7 py-4 border border-ivory/30 text-ivory rounded-sm hover:bg-ivory/10 transition-colors duration-200">
+                  Get a Quote
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
-      </section>
+      </HeroParallax>
 
       {/* ─── ABOUT ────────────────────────────────────────────────────── */}
       <section className="px-6 md:px-16 py-20 bg-ivory">
