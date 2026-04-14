@@ -26,7 +26,7 @@ export function ItemCard({ name, description, imageSrc, imageAlt, enquireParam, 
           </Link>
         </div>
         <div className="relative w-full md:w-72 h-48 md:h-56 rounded-sm overflow-hidden flex-shrink-0">
-          <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
+          <Image src={imageSrc} alt={imageAlt} fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover" />
         </div>
       </div>
     )
@@ -39,6 +39,7 @@ export function ItemCard({ name, description, imageSrc, imageAlt, enquireParam, 
           src={imageSrc}
           alt={imageAlt}
           fill
+          sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>

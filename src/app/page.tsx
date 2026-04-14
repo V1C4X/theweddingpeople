@@ -5,6 +5,25 @@ import { AnimatedWords } from '@/components/AnimatedWords'
 import { ItemCard } from '@/components/ItemCard'
 import { PackageCard } from '@/components/PackageCard'
 import { HeroParallax } from '@/components/HeroParallax'
+import { JsonLd } from '@/components/JsonLd'
+
+const faqData = [
+  { question: 'What areas do you deliver to?', answer: 'We deliver across Auckland and can arrange delivery to surrounding regions. Contact us to discuss your venue location.' },
+  { question: 'How far in advance should I book?', answer: 'We recommend booking at least 3–6 months ahead, especially for peak wedding season (October–April). Popular dates book out fast.' },
+  { question: 'Can I customise a package?', answer: 'Absolutely. Our packages are starting points — we can add or swap items to suit your vision and guest count.' },
+  { question: 'What is The Wedding Bar?', answer: 'Our signature statement bar is a large, elegant centrepiece designed for wedding receptions. It is our flagship hire item and the hero of any event.' },
+  { question: 'Do you set up and pack down?', answer: 'Yes, delivery, setup, and pack-down are all included. We handle the logistics so you can focus on your day.' },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+}
 
 const previewItems = [
   { name: 'Wedding Bar', description: 'Our signature statement piece — the perfect centrepiece for any reception.', imageSrc: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80', imageAlt: 'Wedding bar', category: 'bar', enquireParam: 'bar', featured: false },
@@ -89,6 +108,7 @@ export default function HomePage() {
                     src={`https://images.unsplash.com/${id}?w=400&q=80`}
                     alt={`Wedding inspiration ${i + 1}`}
                     fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover"
                   />
                 </div>
@@ -147,6 +167,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── IMAGE BREAK ────────────────────────────────────────────── */}
+      <section className="relative h-[50vh] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1920&q=85"
+          alt="Wedding venue with natural light"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-forest/70" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <AnimatedSection>
+            <p className="font-heading text-3xl md:text-5xl text-ivory font-light text-center leading-snug drop-shadow-lg">
+              Every detail, <em className="italic text-sand">taken care of</em>
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* ─── GALLERY PREVIEW ──────────────────────────────────────────── */}
       <section className="px-6 md:px-16 py-20 bg-linen">
         <div className="max-w-6xl mx-auto">
@@ -166,7 +205,7 @@ export default function HomePage() {
               <AnimatedSection key={i} delay={i * 0.08} className={i === 0 ? 'row-span-2' : ''}>
                 <Link href="/gallery">
                   <div className={`relative overflow-hidden rounded-sm group ${i === 0 ? 'h-full min-h-[320px]' : 'h-40'}`}>
-                    <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                 </Link>
               </AnimatedSection>
@@ -175,9 +214,40 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── FAQ ──────────────────────────────────────────────────────── */}
+      <section className="px-6 md:px-16 py-20 bg-ivory">
+        <div className="max-w-3xl mx-auto">
+          <AnimatedSection>
+            <p className="text-sage text-[10px] tracking-widest uppercase mb-3">Common Questions</p>
+            <h2 className="font-heading text-4xl text-forest mb-2">Frequently asked questions</h2>
+            <div className="w-10 h-px bg-sand mb-10" />
+          </AnimatedSection>
+          <div className="flex flex-col gap-6">
+            {faqData.map((faq, i) => (
+              <AnimatedSection key={i} delay={i * 0.08}>
+                <div className="border-b border-linen pb-6">
+                  <h3 className="font-heading text-xl text-forest mb-2">{faq.question}</h3>
+                  <p className="text-sm font-light text-charcoal/70 leading-relaxed">{faq.answer}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <JsonLd data={faqSchema} />
+
       {/* ─── CTA STRIP ────────────────────────────────────────────────── */}
-      <section className="bg-forest px-6 md:px-16 py-16">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <section className="relative px-6 md:px-16 py-24 overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=1920&q=85"
+          alt="Beautiful wedding table arrangement"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-forest/70" />
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <AnimatedSection>
             <h2 className="font-heading text-3xl md:text-4xl text-ivory font-light leading-snug">
               Ready to make your day{' '}

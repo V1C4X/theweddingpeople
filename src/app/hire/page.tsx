@@ -41,7 +41,7 @@ const items = [
   {
     name: 'Linen',
     description: 'Tablecloths and napkins in neutral tones that suit any palette.',
-    imageSrc: 'https://images.unsplash.com/photo-1478146059778-26628bd9659f?w=800&q=80',
+    imageSrc: 'https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?w=800&q=80',
     imageAlt: 'Wedding linen',
     category: 'linen',
     enquireParam: 'linen',
@@ -63,9 +63,11 @@ export default function HirePage() {
         title="Our hire <em>collection</em>"
         titleHtml
         subtitle="Browse our full range and enquire about availability for your date."
+        imageSrc="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1920&q=85"
+        imageAlt="Elegant wedding bar setup"
       />
 
-      <section className="px-6 md:px-16 pb-24">
+      <section className="px-6 md:px-16 py-16">
         <AnimatedSection>
           <div className="flex gap-2 flex-wrap mb-10">
             {FILTERS.map(f => (

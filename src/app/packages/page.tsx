@@ -31,8 +31,8 @@ const packages = [
 ]
 
 export const metadata = {
-  title: 'Packages — The Wedding People',
-  description: 'Bundled wedding hire packages for every size celebration in Auckland.',
+  title: 'Packages',
+  description: 'Bundled wedding hire packages for every size celebration in Auckland — from intimate elopements to full weddings up to 120 guests.',
 }
 
 export default function PackagesPage() {
@@ -43,9 +43,11 @@ export default function PackagesPage() {
         title="Bundled for <em>every celebration</em>"
         titleHtml
         subtitle="Not sure where to start? Our packages take the guesswork out of planning — everything you need, bundled together."
+        imageSrc="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1920&q=85"
+        imageAlt="Wedding reception table setting"
       />
 
-      <section className="px-6 md:px-16 pb-16">
+      <section className="px-6 md:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {packages.map((pkg, i) => (
             <AnimatedSection key={pkg.name} delay={i * 0.12}>

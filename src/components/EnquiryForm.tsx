@@ -69,7 +69,7 @@ export function EnquiryForm() {
     return (
       <div className="flex flex-col items-center justify-center h-full gap-4 py-16">
         <div className="w-12 h-12 rounded-full bg-sage/20 flex items-center justify-center">
-          <svg className="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -83,41 +83,46 @@ export function EnquiryForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className={labelClass}>Name</label>
-          <input className={inputClass} placeholder="Your name" value={form.name}
+          <label htmlFor="enquiry-name" className={labelClass}>Name</label>
+          <input id="enquiry-name" className={inputClass} placeholder="Your name" value={form.name}
+            aria-describedby={errors.name ? 'err-name' : undefined}
             onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
-          {errors.name && <p className={errorClass}>{errors.name}</p>}
+          {errors.name && <p id="err-name" className={errorClass}>{errors.name}</p>}
         </div>
         <div>
-          <label className={labelClass}>Email</label>
-          <input className={inputClass} type="email" placeholder="your@email.com" value={form.email}
+          <label htmlFor="enquiry-email" className={labelClass}>Email</label>
+          <input id="enquiry-email" className={inputClass} type="email" placeholder="your@email.com" value={form.email}
+            aria-describedby={errors.email ? 'err-email' : undefined}
             onChange={e => setForm(f => ({ ...f, email: e.target.value }))} />
-          {errors.email && <p className={errorClass}>{errors.email}</p>}
+          {errors.email && <p id="err-email" className={errorClass}>{errors.email}</p>}
         </div>
         <div>
-          <label className={labelClass}>Wedding Date</label>
-          <input className={inputClass} type="date" value={form.date}
+          <label htmlFor="enquiry-date" className={labelClass}>Wedding Date</label>
+          <input id="enquiry-date" className={inputClass} type="date" value={form.date}
+            aria-describedby={errors.date ? 'err-date' : undefined}
             onChange={e => setForm(f => ({ ...f, date: e.target.value }))} />
-          {errors.date && <p className={errorClass}>{errors.date}</p>}
+          {errors.date && <p id="err-date" className={errorClass}>{errors.date}</p>}
         </div>
         <div>
-          <label className={labelClass}>Guest Count</label>
-          <input className={inputClass} type="number" placeholder="Approx. guests" value={form.guests}
+          <label htmlFor="enquiry-guests" className={labelClass}>Guest Count</label>
+          <input id="enquiry-guests" className={inputClass} type="number" placeholder="Approx. guests" value={form.guests}
+            aria-describedby={errors.guests ? 'err-guests' : undefined}
             onChange={e => setForm(f => ({ ...f, guests: e.target.value }))} />
-          {errors.guests && <p className={errorClass}>{errors.guests}</p>}
+          {errors.guests && <p id="err-guests" className={errorClass}>{errors.guests}</p>}
         </div>
       </div>
 
-      <div>
-        <label className={labelClass}>Items Interested In</label>
+      <fieldset>
+        <legend className={labelClass}>Items Interested In</legend>
         <div className="flex flex-wrap gap-2 mt-2">
           {ITEM_OPTIONS.map(({ value, label }) => (
             <button
               key={value}
               type="button"
               onClick={() => toggleItem(value)}
+              aria-pressed={form.items.includes(value)}
               className={`text-[10px] tracking-wide uppercase px-3 py-1.5 rounded-sm border transition-all duration-200 ${
                 form.items.includes(value)
                   ? 'bg-forest text-ivory border-forest'
@@ -129,11 +134,12 @@ export function EnquiryForm() {
           ))}
         </div>
         {errors.items && <p className={errorClass}>{errors.items}</p>}
-      </div>
+      </fieldset>
 
       <div>
-        <label className={labelClass}>Message</label>
+        <label htmlFor="enquiry-message" className={labelClass}>Message <span className="normal-case tracking-normal text-charcoal/40">(optional)</span></label>
         <textarea
+          id="enquiry-message"
           className={`${inputClass} resize-none`}
           rows={3}
           placeholder="Tell us about your wedding..."
@@ -143,7 +149,7 @@ export function EnquiryForm() {
       </div>
 
       {status === 'error' && (
-        <p className="text-xs text-red-500">Something went wrong. Please try again or call us directly.</p>
+        <p className="text-xs text-red-500" role="alert">Something went wrong. Please try again or call us directly.</p>
       )}
 
       <button
