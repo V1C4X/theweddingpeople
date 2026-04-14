@@ -40,7 +40,7 @@ const previewPackages = [
 
 const galleryPreviews = [
   { src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80', alt: 'Wedding 1' },
-  { src: 'https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=800&q=80', alt: 'Wedding 2' },
+  { src: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=80', alt: 'Wedding cocktail bar' },
   { src: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=800&q=80', alt: 'Wedding 3' },
   { src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80', alt: 'Wedding 4' },
   { src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80', alt: 'Wedding 5' },
@@ -103,7 +103,7 @@ export default function HomePage() {
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <div className="grid grid-cols-2 gap-3">
-              {['photo-1519225421980-715cb0215aed', 'photo-1460978812857-470ed1c77af0', 'photo-1532712938310-34cb3982ef74', 'photo-1511795409834-ef04bbd61622'].map((id, i) => (
+              {['photo-1519225421980-715cb0215aed', 'photo-1527529482837-4698179dc6ce', 'photo-1532712938310-34cb3982ef74', 'photo-1511795409834-ef04bbd61622'].map((id, i) => (
                 <div key={i} className="relative aspect-square rounded-sm overflow-hidden">
                   <Image
                     src={`https://images.unsplash.com/${id}?w=400&q=80`}
