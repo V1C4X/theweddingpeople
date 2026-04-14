@@ -2,7 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { AnimatedSection } from './AnimatedSection'
 
-export function CtaStrip() {
+interface Props {
+  heading: string
+  highlight: string
+  buttonText?: string
+  subtitle?: string
+}
+
+export function CtaStrip({ heading, highlight, buttonText = 'Enquire Now', subtitle = 'Free consultation · Auckland based' }: Props) {
   return (
     <section className="relative px-6 md:px-16 py-24 overflow-hidden">
       <Image
@@ -16,8 +23,8 @@ export function CtaStrip() {
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <AnimatedSection>
           <h2 className="font-heading text-3xl md:text-4xl text-ivory font-light leading-snug">
-            Ready to make your day{' '}
-            <em className="italic text-sand">unforgettable?</em>
+            {heading}{' '}
+            <em className="italic text-sand">{highlight}</em>
           </h2>
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
@@ -26,9 +33,9 @@ export function CtaStrip() {
               href="/contact"
               className="text-[10px] tracking-widest uppercase px-8 py-4 bg-sand text-charcoal rounded-sm relative overflow-hidden btn-shimmer hover:scale-[1.02] transition-transform duration-200 font-medium whitespace-nowrap"
             >
-              Enquire Now
+              {buttonText}
             </Link>
-            <p className="text-[10px] text-ivory/40 tracking-wide">Free consultation · Auckland based</p>
+            <p className="text-[10px] text-ivory/40 tracking-wide">{subtitle}</p>
           </div>
         </AnimatedSection>
       </div>

@@ -34,7 +34,7 @@ export default function GalleryPage() {
         <GalleryGrid images={images} />
       </section>
 
-      <CtaStrip />
+      <CtaStrip heading="Love what you see?" highlight="let's create yours." buttonText="Start Planning" />
     </main>
   )
 }

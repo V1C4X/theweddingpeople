@@ -238,7 +238,7 @@ export default function HomePage() {
 
       <JsonLd data={faqSchema} />
 
-      <CtaStrip />
+      <CtaStrip heading="Ready to make your day" highlight="unforgettable?" />
     </main>
   )
 }

@@ -68,7 +68,7 @@ export default function PackagesPage() {
         </AnimatedSection>
       </section>
 
-      <CtaStrip />
+      <CtaStrip heading="Not sure which package?" highlight="we'll help you choose." buttonText="Talk to Us" />
     </main>
   )
 }

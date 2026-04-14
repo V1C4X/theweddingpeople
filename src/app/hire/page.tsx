@@ -96,7 +96,7 @@ export default function HirePage() {
         </div>
       </section>
 
-      <CtaStrip />
+      <CtaStrip heading="Found something you love?" highlight="let's make it happen." buttonText="Get a Quote" />
     </main>
   )
 }
