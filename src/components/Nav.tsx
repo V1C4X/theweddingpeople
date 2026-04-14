@@ -46,9 +46,9 @@ export function Nav() {
             href="/"
             className={`flex flex-col items-center leading-none transition-colors duration-300 ${textColor}`}
           >
-            <span className="font-heading text-xs md:text-[11px] tracking-[0.3em] uppercase">The Wedding</span>
+            <span className="font-heading text-sm md:text-[13px] tracking-[0.3em] uppercase">The Wedding</span>
             <span className="w-full h-px my-1 bg-sand" />
-            <span className="font-heading text-xs md:text-[11px] tracking-[0.3em] uppercase">People</span>
+            <span className="font-heading text-sm md:text-[13px] tracking-[0.3em] uppercase">People</span>
           </Link>
         </motion.div>
 
