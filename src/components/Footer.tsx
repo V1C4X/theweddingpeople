@@ -13,9 +13,9 @@ export function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
           <div className="flex flex-col items-start leading-none">
-            <span className="font-heading text-[11px] text-ivory tracking-[0.3em] uppercase">The Wedding</span>
-            <span className="w-full h-px bg-sand my-[3px]" />
-            <span className="font-heading text-[11px] text-ivory tracking-[0.3em] uppercase">People</span>
+            <span className="font-heading text-sm md:text-[13px] text-ivory tracking-[0.3em] uppercase">The Wedding</span>
+            <span className="w-full h-px bg-sand my-1" />
+            <span className="font-heading text-sm md:text-[13px] text-ivory tracking-[0.3em] uppercase">People</span>
           </div>
           <p className="text-xs text-white/40 mt-3 tracking-wide">Auckland, New Zealand</p>
         </div>
