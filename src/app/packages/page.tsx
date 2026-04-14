@@ -2,6 +2,7 @@ import { PageHero } from '@/components/PageHero'
 import { PackageCard } from '@/components/PackageCard'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import Link from 'next/link'
+import { CtaStrip } from '@/components/CtaStrip'
 
 const packages = [
   {
@@ -66,6 +67,8 @@ export default function PackagesPage() {
           </p>
         </AnimatedSection>
       </section>
+
+      <CtaStrip />
     </main>
   )
 }

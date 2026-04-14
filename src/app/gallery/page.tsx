@@ -1,5 +1,6 @@
 import { PageHero } from '@/components/PageHero'
 import { GalleryGrid, type GalleryImage } from '@/components/GalleryGrid'
+import { CtaStrip } from '@/components/CtaStrip'
 
 export const metadata = {
   title: 'Gallery',
@@ -32,6 +33,8 @@ export default function GalleryPage() {
       <section className="px-6 md:px-16 py-16">
         <GalleryGrid images={images} />
       </section>
+
+      <CtaStrip />
     </main>
   )
 }

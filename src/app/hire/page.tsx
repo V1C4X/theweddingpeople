@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { PageHero } from '@/components/PageHero'
 import { ItemCard } from '@/components/ItemCard'
 import { AnimatedSection } from '@/components/AnimatedSection'
+import { CtaStrip } from '@/components/CtaStrip'
 
 const items = [
   {
@@ -94,6 +95,8 @@ export default function HirePage() {
           ))}
         </div>
       </section>
+
+      <CtaStrip />
     </main>
   )
 }
