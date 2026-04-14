@@ -12,10 +12,12 @@ export function Footer() {
     <footer className="bg-charcoal px-6 md:px-16 py-10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <p className="font-heading text-base text-ivory tracking-[0.2em] uppercase">
-            The Wedding People
-          </p>
-          <p className="text-xs text-white/40 mt-1 tracking-wide">Auckland, New Zealand</p>
+          <div className="flex flex-col items-start leading-none">
+            <span className="font-heading text-[11px] text-ivory tracking-[0.3em] uppercase">The Wedding</span>
+            <span className="w-full h-px bg-sand my-[3px]" />
+            <span className="font-heading text-[11px] text-ivory tracking-[0.3em] uppercase">People</span>
+          </div>
+          <p className="text-xs text-white/40 mt-3 tracking-wide">Auckland, New Zealand</p>
         </div>
         <nav className="flex flex-wrap gap-6">
           {links.map(({ href, label }) => (
