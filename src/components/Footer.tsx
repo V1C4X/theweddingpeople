@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="bg-charcoal px-6 md:px-16 py-10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <div className="flex flex-col items-start leading-none">
+          <div className="flex flex-col items-center leading-none">
             <span className="font-heading text-sm md:text-[13px] text-ivory tracking-[0.3em] uppercase">The Wedding</span>
             <span className="w-full h-px bg-sand my-1" />
             <span className="font-heading text-sm md:text-[13px] text-ivory tracking-[0.3em] uppercase">People</span>
